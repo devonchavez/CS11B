@@ -5,13 +5,14 @@ Instructor: Dave Harden
 Date: June 16, 2025
 File Name: LabProgram.Java
 
-The program will take 2 numbers from the user and display the 1st number divided by the 2nd number 3 times.
+The program estimates the average calories burned for a person when exercising.
 Input:
-2000 2
+49 155 148 60
 Output:
-1000 500 250
- */
+Calories: 736.21 calories
+*/
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class LabProgram {
@@ -19,20 +20,24 @@ public class LabProgram {
     public static void main(String[] args) {
         //input variables
         Scanner input = new Scanner(System.in);
-        int userNum;
-        int divNum;
+        int ageYears;
+        int weightPounds;
+        int heartBPM;
+        int timeMin;
+        double avgCal;
 
-        //convert input to ints
-        userNum = input.nextInt();
-        divNum = input.nextInt();
+        //turning input into ints
+        ageYears = input.nextInt();
+        weightPounds = input.nextInt();
+        heartBPM = input.nextInt();
+        timeMin = input.nextInt();
 
-        //calculations & display output
-        userNum = userNum / divNum;
-        System.out.println(userNum);
-        userNum = userNum / divNum;
-        System.out.println(userNum);
-        userNum = userNum / divNum;
-        System.out.println(userNum);
+        //avg calories calculation
+        avgCal = (ageYears * 0.2757 + weightPounds * 0.03295 + heartBPM * 1.0781 - 75.4992) * timeMin / 8.368;
 
+        //display output
+        System.out.print("Calories: ");
+        System.out.printf("%.2f",+ avgCal);
+        System.out.println(" calories");
     }
 }
