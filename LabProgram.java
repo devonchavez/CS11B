@@ -5,14 +5,13 @@ Instructor: Dave Harden
 Date: June 16, 2025
 File Name: LabProgram.Java
 
-The program estimates the average calories burned for a person when exercising.
+The program takes 3 integers from the user and manipulates its values.
 Input:
-49 155 148 60
+3.6 4.5 2.0
 Output:
-Calories: 736.21 calories
+12.96 1.841304610218211E11 4.5 16.2
 */
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class LabProgram {
@@ -20,24 +19,18 @@ public class LabProgram {
     public static void main(String[] args) {
         //input variables
         Scanner input = new Scanner(System.in);
-        int ageYears;
-        int weightPounds;
-        int heartBPM;
-        int timeMin;
-        double avgCal;
+        double x = input.nextDouble();
+        double y = input.nextDouble();
+        double z = input.nextDouble();
 
-        //turning input into ints
-        ageYears = input.nextInt();
-        weightPounds = input.nextInt();
-        heartBPM = input.nextInt();
-        timeMin = input.nextInt();
+        //calculations
+        double xToZ = Math.pow(x, z); // x^z
+        double xToYToZ = Math.pow(x, Math.pow(y, z)); // (x^z)^y
+        double absY = Math.abs(y); // |y|
+        double sqrtXYToZ = Math.sqrt(Math.pow(x * y, z)); // sqrt((x*y)^z)
 
-        //avg calories calculation
-        avgCal = (ageYears * 0.2757 + weightPounds * 0.03295 + heartBPM * 1.0781 - 75.4992) * timeMin / 8.368;
 
-        //display output
-        System.out.print("Calories: ");
-        System.out.printf("%.2f",+ avgCal);
-        System.out.println(" calories");
+        System.out.println(xToZ + " " + xToYToZ + " " + absY + " " + sqrtXYToZ);
+
     }
 }
