@@ -5,32 +5,19 @@ Instructor: Dave Harden
 Date: June 21, 2025
 File Name: LabProgram.Java
 
-The program takes in the users interstate highway numbers and displays which one theyre taking and which direction its going
+The program takes in a year from the user and displays wether or not its a leap year
 Ex: If the input is:
 
-90
+1712
 the output is:
 
-I-90 is primary, going east/west.
+1712 - leap year
 Ex: If the input is:
 
-290
+1913
 the output is:
 
-I-290 is auxiliary, serving I-90, going east/west.
-Ex: If the input is:
-
-0
-or any number not between 1 and 999, the output is:
-
-0 is not a valid interstate highway number.
-Ex: If the input is:
-
-200
-the output is:
-
-200 is not a valid interstate highway number.
-
+1913 - not a leap year
 */
 
 import java.util.Scanner;
@@ -40,32 +27,65 @@ public class LabProgram {
     public static void main(String[] args) {
         //input variables
         Scanner input = new Scanner(System.in);
+        // Get total amount in pennies
+        int leapYear = input.nextInt();
 
-        //input swaps to ints
-        int highwayNumber = input.nextInt();
-
-        //invalid highway numbers
-        if (highwayNumber < 1 || highwayNumber > 999) {
-            System.out.println(highwayNumber + " is not a valid interstate highway number.");
-        } else if (highwayNumber >= 1 && highwayNumber <= 99) {
-            // Primary highway
-            if (highwayNumber % 2 == 0) {
-                System.out.println("I-" + highwayNumber + " is primary, going east/west.");
-            } else {
-                System.out.println("I-" + highwayNumber + " is primary, going north/south.");
-            }
+        if (totalPennies == 0) {
+            System.out.println("No change");
         } else {
-            // Auxiliary highway
-            int primaryHighway = highwayNumber % 100;
+            // Calculate each coin type
+            int dollars = totalPennies / 100;
+            totalPennies = totalPennies % 100;
 
-            if (primaryHighway == 0) {
-                System.out.println(highwayNumber + " is not a valid interstate highway number.");
-            } else {
+            int quarters = totalPennies / 25;
+            totalPennies = totalPennies % 25;
 
-                if (primaryHighway % 2 == 0) {
-                    System.out.println("I-" + highwayNumber + " is auxiliary, serving I-" + primaryHighway + ", going east/west.");
+            int dimes = totalPennies / 10;
+            totalPennies = totalPennies % 10;
+
+            int nickels = totalPennies / 5;
+            totalPennies = totalPennies % 5;
+
+            int pennies = totalPennies;
+
+            //Output each denomination of currency
+            if (dollars > 0) {
+                if (dollars == 1) {
+                    System.out.println("1 Dollar");
                 } else {
-                    System.out.println("I-" + highwayNumber + " is auxiliary, serving I-" + primaryHighway + ", going north/south.");
+                    System.out.println(dollars + " Dollars");
+                }
+            }
+
+            if (quarters > 0) {
+                if (quarters == 1) {
+                    System.out.println("1 Quarter");
+                } else {
+                    System.out.println(quarters + " Quarters");
+                }
+            }
+
+            if (dimes > 0) {
+                if (dimes == 1) {
+                    System.out.println("1 Dime");
+                } else {
+                    System.out.println(dimes + " Dimes");
+                }
+            }
+
+            if (nickels > 0) {
+                if (nickels == 1) {
+                    System.out.println("1 Nickel");
+                } else {
+                    System.out.println(nickels + " Nickels");
+                }
+            }
+
+            if (pennies > 0) {
+                if (pennies == 1) {
+                    System.out.println("1 Penny");
+                } else {
+                    System.out.println(pennies + " Pennies");
                 }
             }
         }
