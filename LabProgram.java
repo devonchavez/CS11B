@@ -5,19 +5,27 @@ Instructor: Dave Harden
 Date: June 21, 2025
 File Name: LabProgram.Java
 
-The program takes in a year from the user and displays wether or not its a leap year
+The program takes in first, middle initial and last name and orders them in last, first, and middle initial.
 Ex: If the input is:
 
-1712
+Pat Silly Doe
 the output is:
 
-1712 - leap year
+Doe, P.S.
+If the input has the form:
+
+firstName lastName
+
+the output is:
+
+lastName, firstInitial.
+
 Ex: If the input is:
 
-1913
+Julia Clark
 the output is:
 
-1913 - not a leap year
+Clark, J.
 */
 
 import java.util.Scanner;
@@ -25,19 +33,26 @@ import java.util.Scanner;
 public class LabProgram {
     //main method
     public static void main(String[] args) {
-        //input variables
+        //input 
         Scanner input = new Scanner(System.in);
-        //change input to ints
-        int leapYear = input.nextInt();
+        // read first and second names
+        String firstName = input.next();
+        String secondWord = input.next();
 
-        //checks if leap year
-        if (leapYear % 4 != 0 ){
-            System.out.println(leapYear + " - not a leap year");
-        } else if(leapYear % 100 == 0 && leapYear % 400 != 0) {
-            System.out.println(leapYear + " - not a leap year");
-        }else {
-            System.out.println(leapYear + " - leap year");
+        String firstInitial = firstName.substring(0, 1);
+
+        // check if there's a third word
+        if (input.hasNext()) {
+            String middleName = secondWord;
+            String lastName = input.next();
+
+            String middleInitial = middleName.substring(0, 1);
+
+            System.out.println(lastName + ", " + firstInitial + "." + middleInitial + ".");
+        } else {
+            String lastName = secondWord;
+
+            System.out.println(lastName + ", " + firstInitial + ".");
         }
-
     }
 }
