@@ -2,14 +2,14 @@
 Name: Devon Chavez
 Course: CS 111B Programming Fundamentals: Java
 Instructor: Dave Harden
-Date: June 16, 2025
+Date: June 21, 2025
 File Name: LabProgram.Java
 
-The program takes in the users total nickles, dimes, and quarters and converts it into a total dollar ammount
+The program takes 3 ints from the user and displays smallest int
 Input:
-3 1 4
+7 15 3
 Output:
-Amount: $1.25
+3
 */
 
 import java.util.Scanner;
@@ -21,21 +21,18 @@ public class LabProgram {
         Scanner input = new Scanner(System.in);
 
         //input swaps to ints
-        int numNick = input.nextInt();
-        int numDime = input.nextInt();
-        int numQuar = input.nextInt();
+        int num1 = input.nextInt();
+        int num2 = input.nextInt();
+        int num3 = input.nextInt();
 
-        //currency values
-        numNick *= 5;
-        numDime *= 10;
-        numQuar *= 25;
-
-        //total calculations
-        double dolTotal = (numNick + numDime + numQuar) / 100.0;
-
-        //displaying output
-        System.out.print("Amount: ");
-        System.out.printf("$%.2f\n", dolTotal);
+        //check and display smallest int
+        if (num1 < num2 && num1 < num3){
+            System.out.println(num1);
+        } else if (num2 < num3 && num2 < num1) {
+            System.out.println(num2);
+        } else {
+            System.out.println(num3);
+        }
 
     }
 }
