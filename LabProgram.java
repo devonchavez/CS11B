@@ -5,27 +5,19 @@ Instructor: Dave Harden
 Date: June 21, 2025
 File Name: LabProgram.Java
 
-The program takes in first, middle initial and last name and orders them in last, first, and middle initial.
+Create a username for the user with their information
 Ex: If the input is:
 
-Pat Silly Doe
+Michael Jordan 1991
 the output is:
 
-Doe, P.S.
-If the input has the form:
-
-firstName lastName
-
-the output is:
-
-lastName, firstInitial.
-
+Your login name: MichaeJ_1
 Ex: If the input is:
 
-Julia Clark
+Nicole Smith 2024
 the output is:
 
-Clark, J.
+Your login name: NicoleS_4
 */
 
 import java.util.Scanner;
@@ -33,26 +25,28 @@ import java.util.Scanner;
 public class LabProgram {
     //main method
     public static void main(String[] args) {
-        //input 
+        //input
         Scanner input = new Scanner(System.in);
-        // read first and second names
+
+        // Get the user's first name
         String firstName = input.next();
-        String secondWord = input.next();
+        String lastName = input.next();
 
-        String firstInitial = firstName.substring(0, 1);
+        int number = input.nextInt();
+        int lastDigit = number % 10;
 
-        // check if there's a third word
-        if (input.hasNext()) {
-            String middleName = secondWord;
-            String lastName = input.next();
+        String shortFirstName;
+        String lastInitial = lastName.substring(0, 1);
 
-            String middleInitial = middleName.substring(0, 1);
-
-            System.out.println(lastName + ", " + firstInitial + "." + middleInitial + ".");
+        // Get first 6 letters of first name
+        if (firstName.length() < 6) {
+            shortFirstName = firstName;
         } else {
-            String lastName = secondWord;
-
-            System.out.println(lastName + ", " + firstInitial + ".");
+            shortFirstName = firstName.substring(0, 6);
         }
+
+        String login = shortFirstName + lastInitial + "_" + lastDigit;
+
+        System.out.println("Your login name: " + login);
     }
 }
