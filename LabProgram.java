@@ -27,67 +27,17 @@ public class LabProgram {
     public static void main(String[] args) {
         //input variables
         Scanner input = new Scanner(System.in);
-        // Get total amount in pennies
+        //change input to ints
         int leapYear = input.nextInt();
 
-        if (totalPennies == 0) {
-            System.out.println("No change");
-        } else {
-            // Calculate each coin type
-            int dollars = totalPennies / 100;
-            totalPennies = totalPennies % 100;
-
-            int quarters = totalPennies / 25;
-            totalPennies = totalPennies % 25;
-
-            int dimes = totalPennies / 10;
-            totalPennies = totalPennies % 10;
-
-            int nickels = totalPennies / 5;
-            totalPennies = totalPennies % 5;
-
-            int pennies = totalPennies;
-
-            //Output each denomination of currency
-            if (dollars > 0) {
-                if (dollars == 1) {
-                    System.out.println("1 Dollar");
-                } else {
-                    System.out.println(dollars + " Dollars");
-                }
-            }
-
-            if (quarters > 0) {
-                if (quarters == 1) {
-                    System.out.println("1 Quarter");
-                } else {
-                    System.out.println(quarters + " Quarters");
-                }
-            }
-
-            if (dimes > 0) {
-                if (dimes == 1) {
-                    System.out.println("1 Dime");
-                } else {
-                    System.out.println(dimes + " Dimes");
-                }
-            }
-
-            if (nickels > 0) {
-                if (nickels == 1) {
-                    System.out.println("1 Nickel");
-                } else {
-                    System.out.println(nickels + " Nickels");
-                }
-            }
-
-            if (pennies > 0) {
-                if (pennies == 1) {
-                    System.out.println("1 Penny");
-                } else {
-                    System.out.println(pennies + " Pennies");
-                }
-            }
+        //checks if leap year
+        if (leapYear % 4 != 0 ){
+            System.out.println(leapYear + " - not a leap year");
+        } else if(leapYear % 100 == 0 && leapYear % 400 != 0) {
+            System.out.println(leapYear + " - not a leap year");
+        }else {
+            System.out.println(leapYear + " - leap year");
         }
+
     }
 }
