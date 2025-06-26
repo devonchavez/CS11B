@@ -5,17 +5,16 @@ Instructor: Dave Harden
 Date: June 26, 2025
 File Name: LabProgram.Java
 
-This program will read in 2 ints from the user where each range act as bounds for a range and will display its range between the 2 numbers in increments of 5.
+The program takes in string input from the user and reverses it till they are done.
 
 Ex: If the input is:
--15 10
-the output is:
--15 -10 -5 0 5 10
+Hello there
+Hey
+done
 
-Ex: If the second integer is less than the first as in:
-20 5
 the output is:
-Second integer can't be less than the first.
+ereht olleH
+yeH
 */
 
 import java.util.Scanner;
@@ -24,27 +23,27 @@ public class LabProgram {
     //main method
     public static void main(String[] args) {
         Scanner scnr = new Scanner(System.in);
-        int num1 = scnr.nextInt();
-        int num2 = scnr.nextInt();
+        String numString;
 
-        // if error, send msg
-        if (num1 > num2) {
-            System.out.println("Second integer can't be less than the first.");
-        } else {
-            int current = num1;
+        //loop repeats till user wants to stop
+        while (true) {
+            numString = scnr.nextLine();
 
-            //loop while num1 is less then num2
-            while (current <= num2) {
-                System.out.print(current);
-
-                //print space
-                if (current + 5 <= num2) {
-                    System.out.print(" ");
-                }
-                current += 5;
+            //checks if user wants to quit
+            if (numString.equals("Done") || numString.equals("done") || numString.equals("d")) {
+                break;
             }
-            System.out.print(" ");
+
+            //print reverse string
+            for (int i = numString.length() - 1; i >= 0; i--) {
+                System.out.print(numString.charAt(i));
+            }
+
+            //newline
+            System.out.println();
         }
 
     }
 }
+
+
