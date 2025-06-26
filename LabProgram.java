@@ -2,22 +2,16 @@
 Name: Devon Chavez
 Course: CS 111B Programming Fundamentals: Java
 Instructor: Dave Harden
-Date: June 21, 2025
+Date: June 26, 2025
 File Name: LabProgram.Java
 
-Create a username for the user with their information
-Ex: If the input is:
+Take in a series of numbers and return the max and average of the series.
 
-Michael Jordan 1991
+Ex: When the input is:
+15 20 0 3 -1
+
 the output is:
-
-Your login name: MichaeJ_1
-Ex: If the input is:
-
-Nicole Smith 2024
-the output is:
-
-Your login name: NicoleS_4
+20 9.50
 */
 
 import java.util.Scanner;
@@ -25,28 +19,37 @@ import java.util.Scanner;
 public class LabProgram {
     //main method
     public static void main(String[] args) {
-        //input
-        Scanner input = new Scanner(System.in);
+        //scanner and variables
+        Scanner scnr = new Scanner(System.in);
+        int userNum;
+        double avgNum;
+        int counter = 0;
+        int maxNum = -1 ;
+        double sumNum = 0;
 
-        // Get the user's first name
-        String firstName = input.next();
-        String lastName = input.next();
+        //read numbers until neg number
+        while(true){
+            userNum = scnr.nextInt();
+            if (userNum < 0) {
+                break;
+            }
 
-        int number = input.nextInt();
-        int lastDigit = number % 10;
+            //create a sum of numbers and how many of them there are
+            sumNum += userNum;
+            counter++;
 
-        String shortFirstName;
-        String lastInitial = lastName.substring(0, 1);
-
-        // Get first 6 letters of first name
-        if (firstName.length() < 6) {
-            shortFirstName = firstName;
-        } else {
-            shortFirstName = firstName.substring(0, 6);
+            //find max num
+            if (userNum > maxNum) {
+                maxNum = userNum;
+            }
         }
 
-        String login = shortFirstName + lastInitial + "_" + lastDigit;
+        //calc avg
+        avgNum = sumNum / counter;
 
-        System.out.println("Your login name: " + login);
+        //display output
+        System.out.print(maxNum + " ");
+        System.out.printf("%.2f\n", avgNum);
+
     }
 }
