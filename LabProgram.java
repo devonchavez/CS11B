@@ -5,13 +5,35 @@ Instructor: Dave Harden
 Date: June 26, 2025
 File Name: LabProgram.Java
 
-Take in a series of numbers and return the max and average of the series.
+This program will count how many characters are in a string the user inputs.
 
-Ex: When the input is:
-15 20 0 3 -1
+Ex: If the input is:
 
+n Monday
 the output is:
-20 9.50
+
+1 n
+Ex: If the input is:
+
+z Today is Monday
+the output is:
+
+0 z's
+Ex: If the input is:
+
+n It's a sunny day
+the output is:
+
+2 n's
+Case matters.
+
+Ex: If the input is:
+
+n Nobody
+the output is:
+
+0 n's
+n is different than N.
 */
 
 import java.util.Scanner;
@@ -21,35 +43,23 @@ public class LabProgram {
     public static void main(String[] args) {
         //scanner and variables
         Scanner scnr = new Scanner(System.in);
-        int userNum;
-        double avgNum;
-        int counter = 0;
-        int maxNum = -1 ;
-        double sumNum = 0;
+        char userChar = scnr.next().charAt(0);
+        String userString = scnr.nextLine();
+        int numLetters = 0;
 
-        //read numbers until neg number
-        while(true){
-            userNum = scnr.nextInt();
-            if (userNum < 0) {
-                break;
+        //read through the char and ints, count how many chars are in the user string
+        for (int i = 0; i < userString.length(); i++) {
+            if (userString.charAt(i) == userChar) {
+                numLetters += 1;
             }
 
-            //create a sum of numbers and how many of them there are
-            sumNum += userNum;
-            counter++;
-
-            //find max num
-            if (userNum > maxNum) {
-                maxNum = userNum;
-            }
         }
 
-        //calc avg
-        avgNum = sumNum / counter;
-
         //display output
-        System.out.print(maxNum + " ");
-        System.out.printf("%.2f\n", avgNum);
-
+        if (numLetters == 1){
+            System.out.println(numLetters + " " + userChar);
+        } else {
+            System.out.println(numLetters + " " + userChar + "'s");
+        }
     }
 }
