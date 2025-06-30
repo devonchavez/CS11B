@@ -14,36 +14,45 @@ method swapValues() returns and the main program outputs:
 The program must define and call a method:
 */
 
-import javax.crypto.spec.PSource;
 import java.util.Scanner;
 
 public class LabProgram {
     //swap ints method
     public static void swapValues(int[] values){
-        System.out.println(values[1] + " " + values[0] + " " + values[3] + " " + values[2]);
+        int temp;
+
+        //swap index 0 and 1
+        temp = values[0];
+        values[0] = values[1];
+        values[1] = temp;
+
+        //swap index 2 and 3
+        temp = values[2];
+        values[2] = values[3];
+        values[3] = temp;
     }
 
     //main method
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int num1 = input.nextInt();
-        int num2 = input.nextInt();
-        int num3 = input.nextInt();
-        int num4 = input.nextInt();
-
-        //creating new array with a length of 4
+        //read through user input
         int[] numArr = new int[4];
+        for (int i = 0; i < 4; i++) {
+            numArr[i] = input.nextInt();
+        }
 
-        //assigning user input to arr
-        numArr[0] = num1;
-        numArr[1] = num2;
-        numArr[2] = num3;
-        numArr[3] = num4;
-
-        //calling swap values
+        //call swap values
         swapValues(numArr);
 
-
+        //display output
+        for (int i = 0; i < 4; i++) {
+            if (i == numArr.length - 1){
+                System.out.print(numArr[i]);
+            } else {
+                System.out.print(numArr[i] + " ");
+            }
+        }
+        System.out.println();
     }
 }
