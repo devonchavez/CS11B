@@ -5,54 +5,38 @@ Instructor: Dave Harden
 Date: June 30, 2025
 File Name: LabProgram.Java
 
-Creating a program that switches a list of ints given from the user and swaps their positions in the array.
+Creating a program that takes in a random integer and displays that integers ammount of times a coinflip occurs, displaying either heads or tails.
 
-Ex: If the input is:
-3 8 2 4
-method swapValues() returns and the main program outputs:
-8 3 4 2
-The program must define and call a method:
+Ex: If the random object is created with a seed value of 2 and the input is:
+3
+the output is:
+Heads
+Tails
+Heads
 */
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class LabProgram {
-    //swap ints method
-    public static void swapValues(int[] values){
-        int temp;
+    public static String coinFlip(Random rand) {
+        String heads = "Heads";
+        String tails = "Tails";
 
-        //swap index 0 and 1
-        temp = values[0];
-        values[0] = values[1];
-        values[1] = temp;
-
-        //swap index 2 and 3
-        temp = values[2];
-        values[2] = values[3];
-        values[3] = temp;
+        if (rand.nextInt(2) > 0) {
+            return heads;
+        } else {
+            return tails;
+        }
     }
-
-    //main method
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        int num = input.nextInt();
+        Random random = new Random(2);
 
-        //read through user input
-        int[] numArr = new int[4];
-        for (int i = 0; i < 4; i++) {
-            numArr[i] = input.nextInt();
+        for (int i = 0; i < num; i++){
+            System.out.println(coinFlip(random));
         }
 
-        //call swap values
-        swapValues(numArr);
-
-        //display output
-        for (int i = 0; i < 4; i++) {
-            if (i == numArr.length - 1){
-                System.out.print(numArr[i]);
-            } else {
-                System.out.print(numArr[i] + " ");
-            }
-        }
-        System.out.println();
     }
 }
