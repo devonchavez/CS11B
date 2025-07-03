@@ -20,34 +20,36 @@ mark 2
 import java.util.Scanner;
 
 public class LabProgram {
-    public static int getWordFrequency(String[] wordsList, int listSize, String currWord){
-        int counter = 0;
-        //count how many times a word matches the current word in the string
-        for (int i = 0; i < listSize; i++){
-            if (wordsList[i].equalsIgnoreCase(currWord)) {
-                counter++;
-            }
+
+    public static int fibonacci(int n){
+        int nthVal = 0;
+        int prev1 = 0;
+        int prev2 = 1;
+
+        if (n < 0){
+            return -1;
+        } else if (n == 0){
+            return 0;
+        } else if (n == 1){
+            return 1;
         }
-        return counter;
+
+        //swap and add sum of previous values
+        for (int i = 2; i <= n; i++) {
+            nthVal = prev1 + prev2;
+            prev1 = prev2;
+            prev2 = nthVal;
+        }
+
+        return nthVal;
     }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int userNum = input.nextInt();
-        String[] userArr = new String[userNum];
 
-        //add all user input into an array
-        for (int i = 0; i < userArr.length; i++){
-            String userInp = input.next();
-            userArr[i] = userInp;
-        }
+        //display output
+        System.out.println("fibonacci("+ userNum + ") is " + fibonacci(userNum));
 
-        //add each frequency to each word in array
-        for (String s : userArr) {
-            int freq = getWordFrequency(userArr, userNum, s);
-            System.out.print(s + " " + freq);
-            System.out.println();
-        }
     }
-
 }
