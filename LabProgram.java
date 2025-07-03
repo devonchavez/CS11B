@@ -5,38 +5,50 @@ Instructor: Dave Harden
 Date: June 30, 2025
 File Name: LabProgram.Java
 
-Creating a program that takes in a random integer and displays that integers ammount of times a coinflip occurs, displaying either heads or tails.
 
-Ex: If the random object is created with a seed value of 2 and the input is:
-3
+
+Ex: If the input is:
+5 10 4 39 12 2
 the output is:
-Heads
-Tails
-Heads
+39,12,10,4,2,
 */
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class LabProgram {
-    public static String coinFlip(Random rand) {
-        String heads = "Heads";
-        String tails = "Tails";
-
-        if (rand.nextInt(2) > 0) {
-            return heads;
-        } else {
-            return tails;
+    public static void sortArray(int[] myArr, int arrSize){
+        //sort array
+        for (int i = 0; i < arrSize - 1; i++) {
+            for (int j = i + 1; j < arrSize; j++){
+                if (myArr[j] > myArr[i]){
+                    int tempVal = myArr[i];
+                    myArr[i] = myArr[j];
+                    myArr[j] = tempVal;
+                }
+            }
         }
+
     }
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int num = input.nextInt();
-        Random random = new Random(2);
 
-        for (int i = 0; i < num; i++){
-            System.out.println(coinFlip(random));
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int[] userArr = new int[n];
+
+        //add nums from user input into an array
+        for (int i = 0; i < userArr.length; i++){
+            int userNum = input.nextInt();
+            userArr[i] = userNum;
         }
+        //call sort array
+        sortArray(userArr, n);
+
+        //display new array
+        for (int i : userArr) {
+            System.out.print(i + ",");
+        }
+        System.out.println();
 
     }
 }
