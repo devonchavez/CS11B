@@ -1,14 +1,82 @@
+/*
+Name: Devon Chavez
+Course: CS 111B Programming Fundamentals: Java
+Instructor: Dave Harden
+Date: July 6, 2025
+File Name: Artist.Java
+
+Create a class Artist, that takes in input from the user and displays the name and brithdate - deathdate of the artist
+
+Ex: If the input is:
+
+Pablo Picasso
+1881
+1973
+Three Musicians
+1921
+the output is:
+
+Artist: Pablo Picasso (1881 to 1973)
+Title: Three Musicians, 1921
+Ex: If the input is:
+
+Brice Marden
+1938
+-1
+Distant Muses
+2000
+the output is:
+
+Artist: Brice Marden (1938 to present)
+Title: Distant Muses, 2000
+Ex: If the input is:
+
+Banksy
+-1
+-1
+Balloon Girl
+2002
+the output is:
+
+Artist: Banksy (unknown)
+Title: Balloon Girl, 2002
+*/
 public class Artist {
-   // TODO: Declare private fields - artistName, birthYear, deathYear
+   // private fields
+    private String artistName;
+    private int birthYear;
+    private int deathYear;
 
-   // TODO: Define default constructor
+   // default constructor for empty input
+    public Artist(){
+        artistName = "unknown";
+        birthYear = -1;
+        deathYear = -1;
+    }
 
-   // TODO: Define second constructor to initialize 
-   //       private fields (artistName, birthYear, deathYear)
-   
-   // TODO: Define get methods: getName(), getBirthYear(), getDeathYear()
+   // 2nd constructor that instantiates user input
+   public Artist(String userArtist, int userBirthYear, int userDeathYear){
+        artistName = userArtist;
+        birthYear = userBirthYear;
+        deathYear = userDeathYear;
+   }
 
-   // TODO: Define printInfo() method
-   //       If deathYear is entered as -1, only print birthYear
+   // gettes
+    public String getName() {return artistName;}
+    public int getBirthYear() {return birthYear;}
+    public int getDeathYear() {return deathYear;}
 
+    // display output
+    public void printInfo(){
+        System.out.print("Artist: " + getName());
+
+        if (getBirthYear() > 0 && getDeathYear() > 0){
+            System.out.println(" (" + getBirthYear() + " to " + getDeathYear() + ")");
+        } else if (getBirthYear() > 0 && getDeathYear() < 0){
+            System.out.println(" (" + getBirthYear() + " to present)");
+        } else {
+            System.out.println(" (unknown)");
+        }
+
+    }
 }

@@ -1,17 +1,77 @@
+/*
+Name: Devon Chavez
+Course: CS 111B Programming Fundamentals: Java
+Instructor: Dave Harden
+Date: July 6, 2025
+File Name: Artist.Java
+
+Create a class called Artwork that takes in input from the user and displays the peices title and date created while making an object artist athat along with the art peice displays the artists information
+
+Ex: If the input is:
+
+Pablo Picasso
+1881
+1973
+Three Musicians
+1921
+the output is:
+
+Artist: Pablo Picasso (1881 to 1973)
+Title: Three Musicians, 1921
+Ex: If the input is:
+
+Brice Marden
+1938
+-1
+Distant Muses
+2000
+the output is:
+
+Artist: Brice Marden (1938 to present)
+Title: Distant Muses, 2000
+Ex: If the input is:
+
+Banksy
+-1
+-1
+Balloon Girl
+2002
+the output is:
+
+Artist: Banksy (unknown)
+Title: Balloon Girl, 2002
+*/
+
 public class Artwork {
-   // TODO: Declare private fields - title, yearCreated
-   
-   // TODO: Declare private field artist of type Artist 
+   // declare private fields
+   private String title;
+   private int yearCreated;
 
-   // TODO: Define default constructor
-   
-   // TODO: Define get methods: getTitle(), getYearCreated()
+   // delare artist of type artist
+   private Artist artist;
 
-   // TODO: Define second constructor to initialize 
-   //       private fields (title, yearCreated, artist)
-
-   // TODO: Define printInfo() method
-   //       Call the printInfo() method in Artist.java to print an artist's information                                                                                          
-
+   // default constructor for empty input
+   public Artwork() {
+      title = "unknown";
+      yearCreated = -1;
+      artist = new Artist();
    }
+
+   // 2nd constructor that initializes title, yearcreated and artist
+   public Artwork (String userTitle, int userYearCreated, Artist artist) {
+      title = userTitle;
+      yearCreated = userYearCreated;
+      this.artist = artist;
+   }
+
+   // getters
+   public String getTitle() { return title; }
+   public int getYearCreated() { return yearCreated;}
+
+   //display output
+   public void printInfo(){
+      artist.printInfo();
+      System.out.println("Title: " + getTitle() + ", " + getYearCreated());
+   }
+
 }
