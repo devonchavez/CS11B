@@ -47,6 +47,10 @@ public class Artist {
     private int birthYear;
     private int deathYear;
 
+
+
+
+
    // default constructor for empty input
     public Artist(){
         artistName = "unknown";

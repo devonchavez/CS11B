@@ -2,26 +2,43 @@
 Name: Devon Chavez
 Course: CS 111B Programming Fundamentals: Java
 Instructor: Dave Harden
-Date: June 30, 2025
-File Name: LabProgram.Java
+Date: July 6, 2025
+File Name: LabProgram.java
 
-Create a program that takes in string input from the user and puts them into an array, the program will count the frequeny ammount of times the strings appear within the users input
-/*
+Create a prgoram that creates a vending machine objects and calls methods from the class that takes in user input to track the ammount of water bottles purchased and the ammount needed to restock. subtract the bought water bottles from the total ammount and outputs the total inventory after restock
+
 Ex: If the input is:
-5 hey Hi Mark hi mark
+
+5 2
 the output is:
-hey 1
-Hi 2
-Mark 2
-hi 2
-mark 2
+
+Inventory: 17 bottles
 */
 
 import java.util.Scanner;
 
 public class LabProgram {
-    public static void main(String[] args) {
+   public static void main(String[] args) {
+      //call input from user
+      Scanner scnr = new Scanner(System.in);
+      //declare vending machine object
+      VendingMachine vendingMachine = new VendingMachine();
+
+      //declare int variables
+      int purchasedBottles;
+      int ammountToRestock;
+
+      //initialize reading ints
+      purchasedBottles = scnr.nextInt();
+      ammountToRestock  = scnr.nextInt();
+
+      //call vending machine to read bottles purchased and ammount to restock
+      vendingMachine.purchase(purchasedBottles);
+      vendingMachine.restock(ammountToRestock);
+
+      //call vending machine displayed output
+      vendingMachine.report();
 
 
-    }
+   }
 }
