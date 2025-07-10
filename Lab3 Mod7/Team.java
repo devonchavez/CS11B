@@ -33,14 +33,18 @@ public class Team {
    private int wins;
    private int losses;
    
-   //defined mutators
+    //defined setname to set name as userName
     public void setName(String userName) {name = userName;}
+    //defined setwins to set wins as userwins
     public void setWins(int userWins) {wins = userWins;}
+    //defined setlosses to set loses as userlosses
     public void setLosses(int userLossses) {losses = userLossses;}
 
-   //defined accesors
+   // instantiate name
     public String getName() {return name;}
+    //instantiate wins
     public int getWins() {return wins;}
+    //instantiate losses
     public int getLosses() {return losses;}
 
     //defined and calculated win percentage

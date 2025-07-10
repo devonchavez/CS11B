@@ -26,17 +26,20 @@ public class Car {
    private int purchasePrice;
    public int currentValue;
 
-   //set getters for model year and purchase price
+   //set for user mofel year to modelyaer
    public void setModelYear(int userYear){
       modelYear = userYear;
    }
-   
+
+   //get model year
    public int getModelYear() {
       return modelYear;
    }
 
+   //set user purchase price to purchasePrice
    public void setPurchasePrice(int userPrice) { purchasePrice = userPrice; }
 
+   //get purchase price
    public int getPurchasePrice() {return purchasePrice; }
 
    //calclate the depreciation value of the cars age

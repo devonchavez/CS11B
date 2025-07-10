@@ -47,10 +47,6 @@ public class Artist {
     private int birthYear;
     private int deathYear;
 
-
-
-
-
    // default constructor for empty input
     public Artist(){
         artistName = "unknown";
@@ -65,9 +61,11 @@ public class Artist {
         deathYear = userDeathYear;
    }
 
-   // gettes
+   //getter for name
     public String getName() {return artistName;}
+    //getter for birthyear
     public int getBirthYear() {return birthYear;}
+    //getter for death year
     public int getDeathYear() {return deathYear;}
 
     // display output
